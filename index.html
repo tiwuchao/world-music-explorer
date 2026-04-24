@@ -372,11 +372,11 @@
   };
 
   const buttons = document.querySelectorAll('.region-btn');
-  const panel   = document.getElementById('infoPanel');
+  const panel = document.querySelector('#infoPanel');
 
-  function renderTags(container, items) {
+  const renderTags = (container, items) => {
     container.innerHTML = items.map(i => `<span class="tag">${i}</span>`).join('');
-  }
+  };
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -386,13 +386,13 @@
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      document.getElementById('panelEmoji').textContent = d.emoji;
-      document.getElementById('panelTitle').textContent = d.title;
-      document.getElementById('panelSubtitle').textContent = d.subtitle;
-      renderTags(document.getElementById('panelInstruments'), d.instruments);
-      renderTags(document.getElementById('panelGenres'), d.genres);
-      document.getElementById('panelCharacteristic').textContent = d.characteristic;
-      document.getElementById('panelFact').innerHTML = d.fact;
+      document.querySelector('#panelEmoji').textContent = d.emoji;
+      document.querySelector('#panelTitle').textContent = d.title;
+      document.querySelector('#panelSubtitle').textContent = d.subtitle;
+      renderTags(document.querySelector('#panelInstruments'), d.instruments);
+      renderTags(document.querySelector('#panelGenres'), d.genres);
+      document.querySelector('#panelCharacteristic').textContent = d.characteristic;
+      document.querySelector('#panelFact').innerHTML = d.fact;
 
       panel.classList.remove('visible');
       void panel.offsetWidth;
